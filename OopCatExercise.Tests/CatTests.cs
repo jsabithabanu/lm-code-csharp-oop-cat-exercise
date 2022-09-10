@@ -70,4 +70,17 @@ public class CatTests
         DomesticCat domesticCat = new();
         domesticCat.Eat().Should().Be("Purrrrrrr");
     }
+
+    // Test case added to check if some domestic cats randomly let out
+    // a dismissive "It will do I suppose" comment following eating.
+    [Test]
+    public void Some_Of_The_DomesticCat_Should_Make_A_Sound_Randomly_When_Eat_Is_Called()
+    {
+        DomesticCat domesticCat = new();
+        string[] commentFollowingEating = { "It will do I suppose", "Purrrrrrr" };
+
+        // Passing the argument as true to check what
+        // some domestic cats do randomly following eating
+        domesticCat.Eat(true).Should().BeOneOf(commentFollowingEating);
+    }
 }
